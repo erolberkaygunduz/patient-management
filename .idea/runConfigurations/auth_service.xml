@@ -41,7 +41,7 @@
           </list>
         </option>
         <option name="commandLineOptions" value="--network internal" />
-        <option name="sourceFilePath" value="api-gateway/Dockerfile" />
+        <option name="sourceFilePath" value="auth-service/Dockerfile" />
       </settings>
     </deployment>
     <method v="2" />
