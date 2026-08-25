@@ -56,7 +56,7 @@
             </DockerPortBindingImpl>
           </list>
         </option>
-        <option name="commandLineOptions" value="--network internal" />
+        <option name="commandLineOptions" value="--network internal --rm" />
       </settings>
     </deployment>
     <method v="2" />

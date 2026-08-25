@@ -7,6 +7,7 @@ import net.berkaygunduz.patientservice.kafka.KafkaProducer;
 import net.berkaygunduz.patientservice.mapper.PatientMapper;
 import net.berkaygunduz.patientservice.model.Patient;
 import net.berkaygunduz.patientservice.repository.PatientRepository;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -25,6 +26,11 @@ public class PatientService {
         this.patientRepository = patientRepository;
         this.billingServiceGrpcClient = billingServiceGrpcClient;
         this.kafkaProducer = kafkaProducer;
+    }
+
+    public Page<PatientResponseDTO> getALotPatient(Pageable pageable){
+        Page<Patient> patientPage = patientRepository.findAll(pageable);
+        return patientPage.map(PatientMapper::toDTO);
     }
 
     public List<PatientResponseDTO> getPatient() {

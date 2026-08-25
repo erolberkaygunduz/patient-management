@@ -16,7 +16,7 @@
             </DockerPortBindingImpl>
           </list>
         </option>
-        <option name="commandLineOptions" value="--network internal" />
+        <option name="commandLineOptions" value="--network internal --rm" />
         <option name="sourceFilePath" value="billing-service/Dockerfile" />
       </settings>
     </deployment>

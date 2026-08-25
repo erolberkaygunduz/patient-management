@@ -40,7 +40,7 @@
             </DockerEnvVarImpl>
           </list>
         </option>
-        <option name="commandLineOptions" value="--network internal" />
+        <option name="commandLineOptions" value="--network internal --rm" />
         <option name="sourceFilePath" value="patient-service/Dockerfile" />
       </settings>
     </deployment>
