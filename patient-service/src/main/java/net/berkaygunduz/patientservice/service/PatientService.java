@@ -9,6 +9,7 @@ import net.berkaygunduz.patientservice.model.Patient;
 import net.berkaygunduz.patientservice.repository.PatientRepository;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -41,6 +42,7 @@ public class PatientService {
                 .toList();
     }
 
+    @Transactional
     public PatientResponseDTO createPatient(PatientRequestDTO patientRequestDTO) {
         if (patientRepository.existsByEmail(patientRequestDTO.getEmail())) {
             throw new EmailAlreadyExistException("A patient with this email : " + patientRequestDTO.getEmail() + " is already exist.");

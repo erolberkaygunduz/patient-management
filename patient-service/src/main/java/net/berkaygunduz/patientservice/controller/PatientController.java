@@ -8,6 +8,7 @@ import net.berkaygunduz.patientservice.dto.*;
 import net.berkaygunduz.patientservice.dto.validators.CreatePatientValidationGroup;
 import net.berkaygunduz.patientservice.service.PatientService;
 import org.springframework.data.domain.*;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -24,13 +25,11 @@ public class PatientController {
         this.patientService = patientService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     @Operation(summary = "Get Patient if its a lot")
     public ResponseEntity<Page<PatientResponseDTO>> getALotOfPatient(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size){
+            @PageableDefault(page = 0, size = 10) Pageable pageable){
 
-        Pageable pageable = PageRequest.of(page,size);
         Page<PatientResponseDTO> aLotPatient = patientService.getALotPatient(pageable);
         return ResponseEntity.ok(aLotPatient);
     }
